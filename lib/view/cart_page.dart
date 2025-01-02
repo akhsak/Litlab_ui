@@ -1,3 +1,4 @@
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -18,8 +19,8 @@ class CartPage extends StatelessWidget {
               shape: BoxShape.rectangle, // Circular background
             ),
             child: IconButton(
-              icon: Icon(Icons.menu,
-                  color: Colors.white), // Icon color is white for contrast
+              icon: Image.asset(
+                  "assets/menu.png"), // Icon color is white for contrast
               onPressed: () {},
               iconSize: 20, // Adjust icon size if needed
             ),
@@ -29,10 +30,9 @@ class CartPage extends StatelessWidget {
           'Cart',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.add_shopping_cart, color: Colors.black),
+            icon: Icon(EneftyIcons.shopping_cart_outline, color: Colors.black),
             onPressed: () {},
           ),
         ],
@@ -50,8 +50,7 @@ class CartPage extends StatelessWidget {
                   itemCount: 3, // Adjust this based on the number of cards
                   itemBuilder: (context, index) {
                     return LessonCard(
-                      imageUrl:
-                          'https://via.placeholder.com/150', // Placeholder image URL
+                      imageUrl: 'assets/image1.jpg', // Placeholder image URL
                       title: 'Budget Analysis',
                       subtitle: '7 Lessons',
                     );
@@ -63,7 +62,7 @@ class CartPage extends StatelessWidget {
 
           // "Check Out" button at the bottom
           Positioned(
-            bottom: 70,
+            bottom: 100,
             left: 150,
             right: 150,
             child: ElevatedButton(
@@ -109,17 +108,17 @@ class LessonCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      margin: EdgeInsets.only(bottom: 16.0),
+      margin: EdgeInsets.only(bottom: 40.0),
       child: Row(
         children: [
           // Image
           ClipRRect(
             borderRadius: BorderRadius.horizontal(left: Radius.circular(12)),
-            child: Image.network(
+            child: Image.asset(
               imageUrl,
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
+              width: 120,
+              height: 120,
+              fit: BoxFit.fill,
             ),
           ),
           SizedBox(width: 16.0),

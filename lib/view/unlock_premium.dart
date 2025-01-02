@@ -1,4 +1,6 @@
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:litlab_ui/view/buy_detail.dart';
 
 class PremiumAccessPage extends StatelessWidget {
   @override
@@ -7,23 +9,24 @@ class PremiumAccessPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text(
-          "Unlock Premium Access",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color.fromARGB(255, 92, 166, 203),
+            ),
+            child: IconButton(
+              onPressed: () {},
+              icon: Image.asset("assets/menu.png"),
+              iconSize: 20,
+            ),
           ),
         ),
-        centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.black),
+            icon: const Icon(EneftyIcons.notification_outline,
+                color: Colors.black),
             onPressed: () {},
           ),
         ],
@@ -47,6 +50,25 @@ class PremiumAccessPage extends StatelessWidget {
         child: ListView(
           children: [
             const SizedBox(height: 16),
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back_outlined,
+                      color: Colors.black),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Text(
+                  "Unlock Premium Access",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 18),
             buildPlanCard(
               context,
               planName: "Silver",
@@ -56,8 +78,8 @@ class PremiumAccessPage extends StatelessWidget {
                 "Ideal for Exam Preparation",
                 "Downloadable and Printable"
               ],
-              buttonColor: Colors.blue,
-              gradientColors: [Colors.blue.shade400, Colors.blue.shade200],
+              buttonColor: const Color.fromARGB(255, 19, 147, 134),
+              gradientColors: [Colors.teal.shade400, Colors.teal.shade200],
             ),
             buildPlanCard(
               context,
@@ -68,8 +90,8 @@ class PremiumAccessPage extends StatelessWidget {
                 "Ideal for Exam Preparation",
                 "Downloadable and Printable"
               ],
-              buttonColor: Colors.blue,
-              gradientColors: [Colors.blue.shade400, Colors.blue.shade200],
+              buttonColor: const Color.fromARGB(255, 19, 147, 134),
+              gradientColors: [Colors.teal.shade400, Colors.teal.shade200],
             ),
             buildPlanCard(
               context,
@@ -80,8 +102,8 @@ class PremiumAccessPage extends StatelessWidget {
                 "Ideal for Exam Preparation",
                 "Downloadable and Printable"
               ],
-              buttonColor: Colors.blue,
-              gradientColors: [Colors.blue.shade400, Colors.blue.shade200],
+              buttonColor: const Color.fromARGB(255, 19, 147, 134),
+              gradientColors: [Colors.teal.shade400, Colors.teal.shade200],
             ),
           ],
         ),
@@ -136,7 +158,8 @@ class PremiumAccessPage extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.check_circle,
-                                  color: Colors.blue, size: 18),
+                                  color: Color.fromARGB(255, 19, 147, 134),
+                                  size: 18),
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
@@ -162,7 +185,10 @@ class PremiumAccessPage extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 12),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuyPage()));
+                  },
                   child: const Center(
                     child: Text(
                       "Buy Now",
@@ -192,7 +218,7 @@ class PremiumAccessPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.blue.withOpacity(0.2),
+                  color: Color.fromARGB(255, 19, 147, 134),
                   blurRadius: 4,
                   offset: const Offset(0, 2),
                 ),

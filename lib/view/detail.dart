@@ -1,5 +1,6 @@
 import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:litlab_ui/view/cart_page.dart';
 
 class DetailsPage extends StatelessWidget {
@@ -21,27 +22,12 @@ class DetailsPage extends StatelessWidget {
               color: const Color.fromARGB(255, 92, 166, 203),
             ),
             child: IconButton(
-              icon: const Icon(Icons.menu, color: Colors.white),
+              icon: Image.asset("assets/menu.png"),
               onPressed: () {},
               iconSize: 20,
             ),
           ),
         ),
-        title: RichText(
-          text: const TextSpan(
-            children: [
-              TextSpan(
-                text: ' What You Want\n To Learn Today?',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-        centerTitle: true,
         actions: [
           IconButton(
             icon: Icon(EneftyIcons.notification_outline, color: Colors.black),
@@ -52,6 +38,18 @@ class DetailsPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Center(
+            child: Text(
+              "What You Want\n To Learn Today?",
+              style: GoogleFonts.roboto(
+                fontSize: screenWidth *
+                    0.065, // Adjusting font size based on screen width
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
           // Search Bar
           Padding(
             padding:
@@ -139,7 +137,9 @@ class ChoiceChipWidget extends StatelessWidget {
       label: Text(
         label,
         style: TextStyle(
-          color: isSelected ? Colors.white : Colors.black,
+          color: isSelected
+              ? Colors.black
+              : const Color.fromARGB(255, 131, 126, 126),
         ),
       ),
       selected: isSelected,

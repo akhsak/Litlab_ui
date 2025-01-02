@@ -1,4 +1,6 @@
+import 'package:enefty_icons/enefty_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:litlab_ui/view/explore_premium.dart';
 import 'package:litlab_ui/view/unlock_premium.dart';
 
 class GetPremiumPage extends StatelessWidget {
@@ -8,19 +10,30 @@ class GetPremiumPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color.fromARGB(255, 92, 166, 203),
+            ),
+            child: IconButton(
+              onPressed: () {},
+              icon: Image.asset("assets/menu.png"),
+              iconSize: 20,
+            ),
+          ),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Colors.black),
+            icon: const Icon(EneftyIcons.notification_outline,
+                color: Colors.black),
             onPressed: () {},
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(25.0),
         child: ListView(
           children: [
             Text(
@@ -44,7 +57,7 @@ class GetPremiumPage extends StatelessWidget {
               price: "₹4999/6 Papers",
               oldPrice: "₹9999/6 Papers",
               description: "Study notes, Recorded Audio & Expert mentorship",
-              backgroundColor: Colors.blue[50],
+              backgroundColor: Colors.teal[50],
               discountTag: "For you 50% OFF",
             ),
             PremiumPlanCard(
@@ -70,12 +83,13 @@ class GetPremiumPage extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                minimumSize: Size(double.infinity, 50),
-              ),
+                  backgroundColor: const Color.fromARGB(255, 39, 148, 146),
+                  minimumSize: Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10))),
               child: Text(
                 "Continue",
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18, color: Colors.white),
               ),
             ),
           ],
@@ -130,7 +144,7 @@ class PremiumPlanCard extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: const Color.fromARGB(255, 34, 151, 139),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Text(
@@ -171,11 +185,17 @@ class PremiumPlanCard extends StatelessWidget {
             style: TextStyle(fontSize: 14, color: Colors.grey[700]),
           ),
           SizedBox(height: 8),
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              "Explore More",
-              style: TextStyle(color: Colors.blue),
+          Padding(
+            padding: const EdgeInsets.only(left: 200),
+            child: TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ExplorePremium()));
+              },
+              child: Text(
+                "Explore More",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ),
         ],
