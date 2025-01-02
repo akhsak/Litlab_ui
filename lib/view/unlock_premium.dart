@@ -9,7 +9,9 @@ class PremiumAccessPage extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: const Text(
           "Unlock Premium Access",
@@ -26,20 +28,20 @@ class PremiumAccessPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.download), label: "Downloads"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.diamond), label: "Get Premium"),
-          BottomNavigationBarItem(icon: Icon(Icons.book), label: "My Courses"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      // type: BottomNavigationBarType.fixed,
+      // selectedItemColor: Colors.blue,
+      // unselectedItemColor: Colors.grey,
+      // items: const [
+      //   BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(Icons.download), label: "Downloads"),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(Icons.diamond), label: "Get Premium"),
+      //   BottomNavigationBarItem(icon: Icon(Icons.book), label: "My Courses"),
+      //   BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+      // ],
+      //  ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: ListView(
